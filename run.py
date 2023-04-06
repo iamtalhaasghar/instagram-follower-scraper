@@ -41,9 +41,12 @@ def scrape():
 
     time.sleep(1)
 
-    #accept cookie policy
-    bot.execute_script("window.scrollTo(0, document.body.scrollHeight)") 
-    bot.find_element(By.XPATH,"/html/body/div[4]/div/div/div[3]/div[2]/button").click()
+    try:
+        #accept cookie policy
+        bot.execute_script("window.scrollTo(0, document.body.scrollHeight)") 
+        bot.find_element(By.XPATH,"/html/body/div[4]/div/div/div[3]/div[2]/button").click()
+    except Exception as e:
+        print(e)
 
     print("[Info] - Logging in...")  
 
